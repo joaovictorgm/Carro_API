@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/carros-db
+    password: root
+    username: postgres
+    driverClassName: org.postgresql.Driver
