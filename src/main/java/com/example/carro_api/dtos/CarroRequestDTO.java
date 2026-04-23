@@ -3,7 +3,6 @@ package com.example.carro_api.dtos;
 public class CarroRequestDTO {
 
     private String modelo;
-
     private String marca;
     private int ano;
     private String placa;
