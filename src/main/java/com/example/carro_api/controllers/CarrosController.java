@@ -15,6 +15,17 @@ import java.util.List;
 @RequestMapping("/carros")
 public class CarrosController {
 
+    @GetMapping("/listar/{id}")
+    public ResponseEntity<Carro> listarById(@PathVariable Long id){
+        try {
+            return ResponseEntity.ok(carroService.listarById(id));
+        } catch (RuntimeException e ) {
+            return ResponseEntity.badRequest().body(null);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(null);
+        }
+    }
+
     private CarroService carroService;
 
     public CarrosController(CarroService carroService) {
@@ -27,6 +38,8 @@ public class CarrosController {
 
         return ResponseEntity.ok(carroService.listar());
     }
+
+
 
     @PostMapping("/criar")
     public ResponseEntity<Carro> criar(@RequestBody CarroRequestDTO carro){

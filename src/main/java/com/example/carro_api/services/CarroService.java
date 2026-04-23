@@ -43,6 +43,15 @@ public class CarroService {
 
         carroRepository.deleteById(id);
     }
+
+    public Carro listarById(Long id){
+        if(carroRepository.existsById(id)){
+            return carroRepository.findById(id).get();
+
+        }
+        throw new RuntimeException("Carro não existe!");
+
+    }
     private Carro carroRequestDtoParaCarros(CarroRequestDTO entrada){
         Carro saida = new Carro();
         saida.setModelo(entrada.getModelo());
